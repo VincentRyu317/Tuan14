@@ -14,14 +14,9 @@ namespace WinFormsApp1
         {
 
         }
-        Connect kn = new Connect();
-        SqlConnection connsql;
-        private void txt_TenCSDL_TextChanged(object sender, EventArgs e)
-        {
-
-        }
         private void btn_KetNoi_Click(object sender, EventArgs e)
         {
+            //LAPTOP-H34EM8I7\SQLEXPRESS
             TenMay = txt_TenMay.Text;
             TenCSDL = txt_TenCSDL.Text;
 
@@ -42,6 +37,10 @@ namespace WinFormsApp1
                 {
                     connection.Open();
                     MessageBox.Show("Kết nối thành công!");
+                    connection.Close();
+                    this.Hide();
+                    Form2 frm2 = new Form2(connection);
+                    frm2.ShowDialog();
                 }
             }
             catch (Exception ex)
@@ -65,6 +64,29 @@ namespace WinFormsApp1
         private void btn_Thoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btn_KetNoiSan_Click(object sender, EventArgs e)
+        {
+            connectstring = $@"Data Source=LAPTOP-H34EM8I7\SQLEXPRESS;Initial Catalog=COSO;Integrated Security=True";
+
+            try
+            {
+                // Sử dụng chuỗi kết nối trong một tác vụ cụ thể, ví dụ: mở kết nối đến CSDL
+                using (SqlConnection connection = new SqlConnection(connectstring))
+                {
+                    connection.Open();
+                    MessageBox.Show("Kết nối thành công!");
+                    connection.Close();
+                    this.Hide();
+                    Form2 frm2 = new Form2(connection);
+                    frm2.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi mở kết nối: " + ex.Message);
+            }
         }
     }
 }

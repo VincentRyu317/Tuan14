@@ -34,6 +34,7 @@
             txt_TenCSDL = new TextBox();
             btn_KetNoi = new Button();
             btn_Thoat = new Button();
+            btn_KetNoiSan = new Button();
             SuspendLayout();
             // 
             // lbl_TenMay
@@ -88,11 +89,22 @@
             btn_Thoat.UseVisualStyleBackColor = true;
             btn_Thoat.Click += btn_Thoat_Click;
             // 
+            // btn_KetNoiSan
+            // 
+            btn_KetNoiSan.Location = new Point(69, 221);
+            btn_KetNoiSan.Name = "btn_KetNoiSan";
+            btn_KetNoiSan.Size = new Size(150, 46);
+            btn_KetNoiSan.TabIndex = 6;
+            btn_KetNoiSan.Text = "Kết nối sẵn";
+            btn_KetNoiSan.UseVisualStyleBackColor = true;
+            btn_KetNoiSan.Click += btn_KetNoiSan_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 301);
+            Controls.Add(btn_KetNoiSan);
             Controls.Add(btn_Thoat);
             Controls.Add(btn_KetNoi);
             Controls.Add(txt_TenCSDL);
@@ -116,5 +128,6 @@
         private TextBox txt_TenCSDL;
         private Button btn_KetNoi;
         private Button btn_Thoat;
+        private Button btn_KetNoiSan;
     }
 }

@@ -22,3 +22,4 @@ D:\Code\203210917_DoanTrongNhan_T14\WinFormsApp1\WinFormsApp1\obj\Debug\net6.0-w
 D:\Code\203210917_DoanTrongNhan_T14\WinFormsApp1\WinFormsApp1\obj\Debug\net6.0-windows\WinFormsApp1.pdb
 D:\Code\203210917_DoanTrongNhan_T14\WinFormsApp1\WinFormsApp1\obj\Debug\net6.0-windows\WinFormsApp1.genruntimeconfig.cache
 D:\Code\203210917_DoanTrongNhan_T14\WinFormsApp1\WinFormsApp1\obj\Debug\net6.0-windows\ref\WinFormsApp1.dll
+D:\Code\203210917_DoanTrongNhan_T14\WinFormsApp1\WinFormsApp1\obj\Debug\net6.0-windows\WinFormsApp1.Form2.resources
