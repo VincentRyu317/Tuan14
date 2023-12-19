@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using static WinFormsApp1.Form1;
 using static WinFormsApp1.Connect;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
 namespace WinFormsApp1
@@ -98,6 +99,91 @@ namespace WinFormsApp1
             {
                 MessageBox.Show("Vui lòng chọn câu hỏi cần xóa!", "Thông báo", MessageBoxButtons.OK);
             }
+        }
+
+        private void ccb_CoSo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ccb_CoSo.Items.Clear();
+
+            connection.Open();
+
+            // Tạo câu truy vấn SQL để lấy dữ liệu từ cột không trùng nhau
+            string query = "SELECT DISTINCT MaCoSo FROM DonVi";
+
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    // Kiểm tra xem có dữ liệu hay không
+                    if (reader.HasRows)
+                    {
+                        // Duyệt qua từng dòng và thêm giá trị vào ComboBox
+                        while (reader.Read())
+                        {
+                            string value = reader["MaCoSo"].ToString();
+                            ccb_CoSo.Items.Add(value);
+                        }
+                    }
+                }
+            }
+            connection.Close();
+                if (ccb_CoSo.SelectedIndex != -1)
+            {
+                // Lấy giá trị của mục được chọn
+                string selectedValue = ccb_CoSo.SelectedItem.ToString();
+
+                // Sử dụng giá trị để truy vấn thông tin liên quan từ cơ sở dữ liệu
+      
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        // Thêm tham số để tránh SQL Injection
+                        command.Parameters.AddWithValue("@SelectedValue", selectedValue);
+
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                while (reader.Read())
+                                {
+                                    string value = reader["MaCoSo"].ToString();
+                                    ccb_CoSo.Items.Add(value);
+                                }
+                            }
+                        }
+                    }
+                }
+                connection.Close();
+            }
+        }
+
+        private void ccb_DonVi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ccb_DonVi.Items.Clear();
+
+            connection.Open();
+
+            // Tạo câu truy vấn SQL để lấy dữ liệu từ cột không trùng nhau
+            string query = "SELECT DISTINCT MaDonVi FROM GV";
+
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    // Kiểm tra xem có dữ liệu hay không
+                    if (reader.HasRows)
+                    {
+                        // Duyệt qua từng dòng và thêm giá trị vào ComboBox
+                        while (reader.Read())
+                        {
+                            string value = reader["MaDonVi"].ToString();
+                            ccb_DonVi.Items.Add(value);
+                        }
+                    }
+                }
+            }
+            connection.Close();
         }
     }
 }

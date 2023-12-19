@@ -33,6 +33,10 @@
             btn_Delete = new Button();
             btn_Exit = new Button();
             txt_NhapMaGV = new TextBox();
+            ccb_CoSo = new ComboBox();
+            ccb_DonVi = new ComboBox();
+            lbl_CoSo = new Label();
+            lbl_DonVi = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -78,16 +82,58 @@
             // 
             // txt_NhapMaGV
             // 
-            txt_NhapMaGV.Location = new Point(60, 411);
+            txt_NhapMaGV.Location = new Point(62, 372);
             txt_NhapMaGV.Name = "txt_NhapMaGV";
             txt_NhapMaGV.Size = new Size(200, 39);
             txt_NhapMaGV.TabIndex = 4;
+            // 
+            // ccb_CoSo
+            // 
+            ccb_CoSo.FormattingEnabled = true;
+            ccb_CoSo.Location = new Point(376, 501);
+            ccb_CoSo.Name = "ccb_CoSo";
+            ccb_CoSo.Size = new Size(242, 40);
+            ccb_CoSo.TabIndex = 5;
+            ccb_CoSo.SelectedIndexChanged += ccb_CoSo_SelectedIndexChanged;
+            ccb_CoSo.Click += ccb_CoSo_SelectedIndexChanged;
+            // 
+            // ccb_DonVi
+            // 
+            ccb_DonVi.FormattingEnabled = true;
+            ccb_DonVi.Location = new Point(376, 585);
+            ccb_DonVi.Name = "ccb_DonVi";
+            ccb_DonVi.Size = new Size(242, 40);
+            ccb_DonVi.TabIndex = 6;
+            ccb_DonVi.SelectedIndexChanged += ccb_DonVi_SelectedIndexChanged;
+            ccb_DonVi.Click += ccb_DonVi_SelectedIndexChanged;
+            // 
+            // lbl_CoSo
+            // 
+            lbl_CoSo.AutoSize = true;
+            lbl_CoSo.Location = new Point(88, 512);
+            lbl_CoSo.Name = "lbl_CoSo";
+            lbl_CoSo.Size = new Size(74, 32);
+            lbl_CoSo.TabIndex = 7;
+            lbl_CoSo.Text = "Cơ sở";
+            // 
+            // lbl_DonVi
+            // 
+            lbl_DonVi.AutoSize = true;
+            lbl_DonVi.Location = new Point(91, 589);
+            lbl_DonVi.Name = "lbl_DonVi";
+            lbl_DonVi.Size = new Size(172, 32);
+            lbl_DonVi.TabIndex = 8;
+            lbl_DonVi.Text = "Đơn vị đào tạo";
             // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1104, 603);
+            ClientSize = new Size(1104, 661);
+            Controls.Add(lbl_DonVi);
+            Controls.Add(lbl_CoSo);
+            Controls.Add(ccb_DonVi);
+            Controls.Add(ccb_CoSo);
             Controls.Add(txt_NhapMaGV);
             Controls.Add(btn_Exit);
             Controls.Add(btn_Delete);
@@ -109,5 +155,9 @@
         private Button btn_Delete;
         private Button btn_Exit;
         private TextBox txt_NhapMaGV;
+        private ComboBox ccb_CoSo;
+        private ComboBox ccb_DonVi;
+        private Label lbl_CoSo;
+        private Label lbl_DonVi;
     }
 }
