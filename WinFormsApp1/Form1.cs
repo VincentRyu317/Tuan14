@@ -8,11 +8,12 @@ namespace WinFormsApp1
         public Form1()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
         private void btn_KetNoi_Click(object sender, EventArgs e)
         {
@@ -32,7 +33,7 @@ namespace WinFormsApp1
 
             try
             {
-                // Sử dụng chuỗi kết nối trong một tác vụ cụ thể, ví dụ: mở kết nối đến CSDL
+
                 using (SqlConnection connection = new SqlConnection(connectstring))
                 {
                     connection.Open();
@@ -72,7 +73,6 @@ namespace WinFormsApp1
 
             try
             {
-                // Sử dụng chuỗi kết nối trong một tác vụ cụ thể, ví dụ: mở kết nối đến CSDL
                 using (SqlConnection connection = new SqlConnection(connectstring))
                 {
                     connection.Open();
